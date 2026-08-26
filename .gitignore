@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches and tests
+.pytest_cache/
+.coverage
+htmlcov/
+.cache/
+
+# Environments & OS
+.env
+.env.local
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Database
+# Note: Keep database if local demo, but ignore lock/wal files
+*.db-journal
+*.db-wal
+*.db-shm

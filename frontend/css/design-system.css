@@ -1,0 +1,195 @@
+/* ==========================================================================
+   AURA RECOVERY - CYBER OBSIDIAN & NEON GLASS DESIGN SYSTEM
+   Theme: High-Tech Dark Cybernetic Mission Control & Adaptive Pearl Light
+   ========================================================================== */
+
+:root, [data-theme="dark"] {
+  /* Surfaces & Canvas */
+  --bg-canvas: #090d16;
+  --bg-surface: #0f172a;
+  --bg-card: rgba(17, 24, 39, 0.85);
+  --bg-card-hover: rgba(26, 36, 56, 0.95);
+  --bg-glass: rgba(15, 23, 42, 0.82);
+  --bg-glass-card: rgba(15, 23, 42, 0.78);
+  --bg-subtle: rgba(30, 41, 59, 0.7);
+  --bg-muted: rgba(30, 41, 59, 0.45);
+  --bg-input: #131d31;
+
+  /* Cyber & Luminescent Accents */
+  --primary: #818cf8;
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+  --primary-light: rgba(99, 102, 241, 0.16);
+  --primary-glow: rgba(129, 140, 248, 0.35);
+  --primary-border: rgba(129, 140, 248, 0.35);
+
+  --success: #10b981;
+  --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --success-light: rgba(16, 185, 129, 0.16);
+  --success-glow: rgba(16, 185, 129, 0.35);
+  --success-border: rgba(16, 185, 129, 0.35);
+
+  --warning: #f59e0b;
+  --warning-gradient: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  --warning-light: rgba(245, 158, 11, 0.16);
+  --warning-glow: rgba(245, 158, 11, 0.35);
+  --warning-border: rgba(245, 158, 11, 0.35);
+
+  --danger: #f43f5e;
+  --danger-gradient: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+  --danger-light: rgba(244, 63, 94, 0.16);
+  --danger-glow: rgba(244, 63, 94, 0.4);
+  --danger-border: rgba(244, 63, 94, 0.35);
+
+  --info: #06b6d4;
+  --info-gradient: linear-gradient(135deg, #38bdf8 0%, #0891b2 100%);
+  --info-light: rgba(6, 182, 212, 0.16);
+  --info-glow: rgba(6, 182, 212, 0.35);
+  --info-border: rgba(6, 182, 212, 0.35);
+
+  /* High-Contrast Cybernetic Typography */
+  --text-main: #f8fafc;
+  --text-body: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-light: #64748b;
+
+  /* Borders & Glowing Dividers */
+  --border: rgba(51, 65, 85, 0.7);
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-glass: rgba(255, 255, 255, 0.12);
+  --border-active: rgba(129, 140, 248, 0.6);
+  --ring-track: rgba(51, 65, 85, 0.5);
+
+  /* Floating Depths & Holographic Glows */
+  --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.4), 0 1px 3px -1px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 15px -3px rgba(99, 102, 241, 0.15);
+  --shadow-lg: 0 20px 45px -8px rgba(0, 0, 0, 0.7), 0 0 25px -4px rgba(99, 102, 241, 0.25);
+  --shadow-3d: 
+    0 16px 36px -6px rgba(0, 0, 0, 0.55),
+    0 4px 12px -2px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  --shadow-3d-hover: 
+    0 24px 50px -10px rgba(0, 0, 0, 0.75),
+    0 0 30px -5px rgba(99, 102, 241, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+  /* Radii */
+  --r-sm: 8px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-xl: 28px;
+  --r-full: 9999px;
+
+  /* Fonts */
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Fira Code', 'JetBrains Mono', monospace;
+}
+
+/* Light Pearl Variant */
+[data-theme="light"] {
+  --bg-canvas: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fcfdfe;
+  --bg-glass: rgba(255, 255, 255, 0.88);
+  --bg-glass-card: rgba(255, 255, 255, 0.92);
+  --bg-subtle: #f1f5f9;
+  --bg-muted: #e2e8f0;
+  --bg-input: #ffffff;
+
+  --primary: #6366f1;
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  --primary-light: #eef2ff;
+  --primary-glow: rgba(99, 102, 241, 0.22);
+  --primary-border: rgba(99, 102, 241, 0.25);
+
+  --success: #10b981;
+  --success-gradient: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+  --success-light: #ecfdf5;
+  --success-glow: rgba(16, 185, 129, 0.2);
+  --success-border: rgba(16, 185, 129, 0.25);
+
+  --warning: #f59e0b;
+  --warning-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  --warning-light: #fffbeb;
+  --warning-glow: rgba(245, 158, 11, 0.2);
+  --warning-border: rgba(245, 158, 11, 0.25);
+
+  --danger: #f43f5e;
+  --danger-gradient: linear-gradient(135deg, #fb7185 0%, #f43f5e 100%);
+  --danger-light: #fff1f2;
+  --danger-glow: rgba(244, 63, 94, 0.2);
+  --danger-border: rgba(244, 63, 94, 0.25);
+
+  --info: #06b6d4;
+  --info-gradient: linear-gradient(135deg, #38bdf8 0%, #06b6d4 100%);
+  --info-light: #ecfeff;
+  --info-glow: rgba(6, 182, 212, 0.2);
+  --info-border: rgba(6, 182, 212, 0.25);
+
+  --text-main: #0f172a;
+  --text-body: #334155;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  --border: rgba(226, 232, 240, 0.95);
+  --border-subtle: rgba(226, 232, 240, 0.6);
+  --border-glass: rgba(255, 255, 255, 0.95);
+  --border-active: rgba(99, 102, 241, 0.4);
+  --ring-track: #e2e8f0;
+
+  --shadow-sm: 0 2px 6px -1px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 10px 25px -4px rgba(99, 102, 241, 0.09);
+  --shadow-lg: 0 20px 40px -8px rgba(99, 102, 241, 0.14);
+  --shadow-3d: 
+    0 16px 32px -6px rgba(15, 23, 42, 0.08),
+    0 4px 12px -2px rgba(15, 23, 42, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+  --shadow-3d-hover: 
+    0 24px 48px -10px rgba(99, 102, 241, 0.18),
+    0 8px 20px -4px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 #ffffff;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button, input, select, textarea, optgroup {
+  font-family: inherit;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 20%, rgba(6, 182, 212, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 50% 85%, rgba(217, 70, 239, 0.08) 0%, transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+  background-attachment: fixed;
+  color: var(--text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--r-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

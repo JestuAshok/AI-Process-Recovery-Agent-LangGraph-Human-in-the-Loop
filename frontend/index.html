@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Process Recovery Agent – LangGraph – Human-in-the-Loop</title>
+  <meta name="description" content="AI Process Recovery Agent with LangGraph cyclic graph engine, Human-in-the-Loop approval gate, and real-time self-healing operations." />
+  
+  <!-- Immediate Theme Initializer to Prevent Flash -->
+  <script>
+    (function() {
+      const saved = localStorage.getItem('aura_theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', saved);
+    })();
+  </script>
+
+  <!-- Modern Typography (Poppins & Fira Code) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <!-- Cybernetic Stylesheets -->
+  <link rel="stylesheet" href="/static/css/design-system.css" />
+  <link rel="stylesheet" href="/static/css/layout.css" />
+  <link rel="stylesheet" href="/static/css/components.css" />
+  <link rel="stylesheet" href="/static/css/animations.css" />
+</head>
+<body>
+  <div id="app-container">
+    <!-- Compact Floating Vertical Sidebar -->
+    <aside class="app-sidebar">
+      <div class="brand-header">
+        <div class="brand-logo-3d">⚡</div>
+        <div>
+          <div class="brand-name">AI Process Recovery</div>
+          <div class="brand-tag">LangGraph &bull; HITL</div>
+        </div>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li>
+          <a href="#dashboard" class="nav-link active" data-tab="dashboard">
+            <span class="nav-icon">📊</span>
+            <span>Command Center</span>
+          </a>
+        </li>
+        <li>
+          <a href="#workflows" class="nav-link" data-tab="workflows">
+            <span class="nav-icon">⚡</span>
+            <span>Order Workflows</span>
+          </a>
+        </li>
+        <li>
+          <a href="#failures" class="nav-link" data-tab="failures">
+            <span class="nav-icon">⚠️</span>
+            <span>Incident & Error Logs</span>
+            <span class="nav-badge" id="badge-active-failures" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="#approvals" class="nav-link" data-tab="approvals">
+            <span class="nav-icon">🛡️</span>
+            <span>Human Approval Gate</span>
+            <span class="nav-badge" id="badge-pending-approvals" style="display: none;">0</span>
+          </a>
+        </li>
+        <li>
+          <a href="#audit" class="nav-link" data-tab="audit">
+            <span class="nav-icon">📜</span>
+            <span>AI Audit Timeline</span>
+          </a>
+        </li>
+        <li>
+          <a href="#services" class="nav-link" data-tab="services">
+            <span class="nav-icon">🧪</span>
+            <span>Services & Chaos Studio</span>
+          </a>
+        </li>
+        <li>
+          <a href="#settings" class="nav-link" data-tab="settings">
+            <span class="nav-icon">⚙️</span>
+            <span>AI Engine Settings</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="ai-status-chip">
+          <div class="ai-pulse-dot"></div>
+          <div class="ai-chip-text" id="sidebar-ai-chip">Agent: Monitoring</div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="app-main">
+      <header class="app-topbar">
+        <div class="topbar-title-wrap">
+          <h1 class="topbar-title" id="topbar-page-title">Command Center</h1>
+        </div>
+
+        <div class="topbar-actions">
+          <div class="scenario-bar">
+            <span style="font-size: 13px;">⚡</span>
+            <select id="demo-scenario-select" class="scenario-select" aria-label="Demo Scenario Selection">
+              <option value="inventory_out_of_stock">Demo 1: Bangalore Out of Stock (Auto 512GB Upgrade)</option>
+              <option value="payment_timeout">Demo 2: UPI / Razorpay Payment Timeout (Auto-Retry)</option>
+              <option value="inventory_service_down">Demo 3: Mumbai Hub 503 Outage (Auto-Reconnect)</option>
+              <option value="delivery_failed">Demo 4: Delhivery Courier Disconnect (Switch Blue Dart)</option>
+              <option value="high_value_recovery">Demo 5: High-Value Order Review (₹3,49,900 Dual Gate)</option>
+            </select>
+            <button class="btn btn-primary btn-sm" id="btn-run-demo-topbar">
+              Run Demo
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="app-content fade-in" id="view-container"></div>
+    </main>
+  </div>
+
+  <div id="toast-container"></div>
+  <script type="module" src="/static/js/app.js?v=3.0"></script>
+</body>
+</html>

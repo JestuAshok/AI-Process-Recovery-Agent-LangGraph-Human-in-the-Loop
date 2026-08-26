@@ -1,0 +1,488 @@
+/* ==========================================================================
+   CYBER OBSIDIAN COMPONENTS: Glowing Cards, Telemetry Pipeline, AI Orb, Pills
+   ========================================================================== */
+
+/* 3D Glass Surface Card */
+.card-3d {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-3d);
+  padding: 22px;
+  position: relative;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.card-3d:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-3d-hover);
+  border-color: var(--border-active);
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -0.2px;
+}
+
+/* 3D KPI Metric Disc Cards */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.kpi-card {
+  background: var(--bg-card);
+  border-radius: var(--r-md);
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.kpi-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-border);
+}
+
+.kpi-card:hover::before {
+  background: var(--primary-gradient);
+}
+
+.kpi-disc {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.kpi-disc-purple { background: var(--primary-light); color: var(--primary); box-shadow: 0 0 14px var(--primary-glow); }
+.kpi-disc-green  { background: var(--success-light); color: var(--success); box-shadow: 0 0 14px var(--success-glow); }
+.kpi-disc-coral  { background: var(--danger-light);  color: var(--danger);  box-shadow: 0 0 14px var(--danger-glow);  }
+.kpi-disc-amber  { background: var(--warning-light); color: var(--warning); box-shadow: 0 0 14px var(--warning-glow); }
+.kpi-disc-cyan   { background: var(--info-light);    color: var(--info);    box-shadow: 0 0 14px var(--info-glow);    }
+
+.kpi-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.1;
+  letter-spacing: -0.4px;
+  font-family: var(--font-mono);
+}
+
+.kpi-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+/* 3D Interactive Pipeline Visualizer */
+.pipeline-card {
+  background: var(--bg-card);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.pipeline-track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  padding: 10px 10px;
+}
+
+.pipeline-line-bg {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+  right: 40px;
+  height: 4px;
+  background: var(--border);
+  z-index: 1;
+  border-radius: 2px;
+}
+
+.pipeline-line-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 14px var(--primary-glow);
+}
+
+.pipe-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pipe-node:hover {
+  transform: translateY(-3px);
+}
+
+.pipe-node-disc {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 3px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease;
+}
+
+.pipe-node.active .pipe-node-disc {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  box-shadow: 0 0 0 5px var(--primary-glow), 0 0 24px var(--primary-glow);
+  animation: pulse-node 2s infinite;
+}
+
+.pipe-node.completed .pipe-node-disc {
+  border-color: var(--success);
+  background: var(--success-light);
+  box-shadow: 0 0 16px var(--success-glow);
+}
+
+.pipe-node.failed .pipe-node-disc {
+  border-color: var(--danger);
+  background: var(--danger-light);
+  box-shadow: 0 0 0 5px var(--danger-glow), 0 0 20px var(--danger-glow);
+  animation: shake 0.5s ease-in-out;
+}
+
+.pipe-node-title {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.pipe-node-badge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* 3D Holographic AI Agent Orb */
+.ai-orb-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ai-orb-sphere {
+  width: 52px;
+  height: 52px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-orb-ball {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--primary-gradient);
+  box-shadow: 0 0 24px var(--primary-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 19px;
+  animation: float-orb 3.5s ease-in-out infinite;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+
+.ai-orb-ring {
+  position: absolute;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--primary);
+  animation: spin-ring 8s linear infinite;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+/* Glowing Cyber Status Pills */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  font-size: 10.5px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.pill-completed, .pill-success {
+  background: var(--success-light);
+  color: #34d399;
+  border-color: var(--success-border);
+  box-shadow: 0 0 8px var(--success-glow);
+}
+.pill-completed .pill-dot, .pill-success .pill-dot { background: #10b981; }
+
+.pill-running, .pill-active {
+  background: var(--info-light);
+  color: #38bdf8;
+  border-color: var(--info-border);
+  box-shadow: 0 0 8px var(--info-glow);
+}
+.pill-running .pill-dot, .pill-active .pill-dot { background: #06b6d4; animation: pulse-green 1.5s infinite; }
+
+.pill-failed, .pill-unresolved {
+  background: var(--danger-light);
+  color: #fb7185;
+  border-color: var(--danger-border);
+  box-shadow: 0 0 8px var(--danger-glow);
+}
+.pill-failed .pill-dot, .pill-unresolved .pill-dot { background: #f43f5e; }
+
+.pill-recovering {
+  background: var(--primary-light);
+  color: #a78bfa;
+  border-color: var(--primary-border);
+  box-shadow: 0 0 10px var(--primary-glow);
+}
+.pill-recovering .pill-dot { background: var(--primary); animation: pulse-purple 1.5s infinite; }
+
+.pill-waiting_for_approval, .pill-pending {
+  background: var(--warning-light);
+  color: #fbbf24;
+  border-color: var(--warning-border);
+  box-shadow: 0 0 8px var(--warning-glow);
+}
+.pill-waiting_for_approval .pill-dot, .pill-pending .pill-dot { background: #f59e0b; }
+
+.pill-cancelled {
+  background: var(--bg-muted);
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+.pill-cancelled .pill-dot { background: var(--text-light); }
+
+/* Action Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: var(--r-md);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-decoration: none;
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  color: white;
+  box-shadow: 0 0 16px var(--primary-glow);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px var(--primary-glow);
+}
+
+.btn-success {
+  background: var(--success-gradient);
+  color: white;
+  box-shadow: 0 0 16px var(--success-glow);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px var(--success-glow);
+}
+
+.btn-danger {
+  background: var(--danger-gradient);
+  color: white;
+  box-shadow: 0 0 16px var(--danger-glow);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.btn-danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px var(--danger-glow);
+}
+
+.btn-subtle {
+  background: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.btn-subtle:hover {
+  border-color: var(--primary-border);
+  color: var(--primary);
+  box-shadow: 0 0 10px var(--primary-glow);
+  transform: translateY(-1px);
+}
+
+.btn-sm {
+  padding: 5px 12px;
+  font-size: 11.5px;
+  border-radius: var(--r-sm);
+}
+
+/* Minimal Table */
+.table-wrap {
+  overflow-x: auto;
+}
+
+.table-clean {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-clean th {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-muted);
+}
+
+.table-clean td {
+  padding: 12px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-main);
+  transition: background 0.15s ease;
+}
+
+.table-clean tr:hover td {
+  background: var(--bg-subtle);
+}
+
+/* Forms & Inputs */
+input, select, textarea {
+  background: var(--bg-input);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  font-family: var(--font-sans);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 12px var(--primary-glow);
+  outline: none;
+}
+
+/* Toast Notifications */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast-msg {
+  background: var(--bg-surface);
+  border-radius: var(--r-md);
+  padding: 14px 18px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-main);
+  animation: slide-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  min-width: 280px;
+  backdrop-filter: blur(12px);
+}
